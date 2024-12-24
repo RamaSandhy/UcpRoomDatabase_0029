@@ -27,4 +27,12 @@ class DoctorRepository(private val DokterDao: Dokterdao) {
 
         return dokterGraphList
     }
+    suspend fun insert(dokter: Dokter) {
+        DokterDao.insertDokterdao(dokter)
+    }
+
+    suspend fun delete(dokter: Dokter) {
+        DokterDao.deleteDokterdao(dokter)
+
+    }
 }
