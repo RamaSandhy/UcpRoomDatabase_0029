@@ -12,4 +12,8 @@ class JadwalRepository(private val jadwalDao: JadwalDao) {
     suspend fun insert(jadwal: Jadwal) {
         jadwalDao.insertJadwal(jadwal)
     }
+
+    suspend fun delete(jadwal: Jadwal) {
+        jadwalDao.deleteJadwal(jadwal)
+    }
 }
