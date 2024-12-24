@@ -15,5 +15,9 @@ interface JadwalDao {
     @Update
     suspend fun updateJadwal(jadwal: Jadwal)
 
+    @Delete
+    suspend fun deleteJadwal(jadwal: Jadwal)
+
+
 
 
