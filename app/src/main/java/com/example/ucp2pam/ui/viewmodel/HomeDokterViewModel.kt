@@ -10,19 +10,14 @@ import kotlinx.coroutines.launch
 
 class HomeDokterViewModel(private val doctorRepository: DoctorRepository) : ViewModel() {
 
-    // MutableLiveData untuk menyimpan daftar dokter
     private val _dokterList = MutableLiveData<List<Dokter>>()
     val dokterList: LiveData<List<Dokter>> get() = _dokterList
 
-    // Fungsi untuk mendapatkan semua dokter dari repository
     fun getAllDokter() {
-        // Menjalankan coroutine untuk mengambil data dari repository
-        // (saran: gunakan ViewModelScope atau implementasi lainnya sesuai kebutuhan)
         viewModelScope.launch {
             _dokterList.value = doctorRepository.getAllDokter()
         }
     }
-
 
     fun searchDokter(query: String) {
         val filteredList = _dokterList.value?.filter {
