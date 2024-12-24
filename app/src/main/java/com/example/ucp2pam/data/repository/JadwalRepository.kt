@@ -8,4 +8,8 @@ class JadwalRepository(private val jadwalDao: JadwalDao) {
     suspend fun getAllJadwal(): List<Jadwal> {
         return jadwalDao.getAllJadwal()
     }
+
+    suspend fun insert(jadwal: Jadwal) {
+        jadwalDao.insertJadwal(jadwal)
+    }
 }
