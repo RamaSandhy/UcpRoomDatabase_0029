@@ -14,4 +14,17 @@ class DoctorRepository(private val DokterDao: Dokterdao) {
         return DokterDao.getAllDokter()
     }
 
+    suspend fun getDokterGraph(): List<DokterGraph> {
+        val dokterList = DokterDao.getAllDokter()
+        val dokterGraphList = mutableListOf<DokterGraph>()
+
+        dokterList.forEach { dokter ->
+            val connectedDokters = dokterList.filter {
+                it.spesialis == dokter.spesialis && it.id != dokter.id
+            }
+            dokterGraphList.add(DokterGraph(dokter, connectedDokters))
+        }
+
+        return dokterGraphList
+    }
 }
