@@ -16,4 +16,8 @@ class JadwalRepository(private val jadwalDao: JadwalDao) {
     suspend fun delete(jadwal: Jadwal) {
         jadwalDao.deleteJadwal(jadwal)
     }
+
+    suspend fun getJadwalById(id: Int): Jadwal? {
+        return jadwalDao.getJadwalById(id)
+    }
 }
