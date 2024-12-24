@@ -5,7 +5,7 @@ import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
 import androidx.room.Update
-import com.example.pertemuan9.data.entity.Dokter
+import com.example.ucp2pam.data.entity.Dokter
 
 @Dao
 interface Dokterdao {
