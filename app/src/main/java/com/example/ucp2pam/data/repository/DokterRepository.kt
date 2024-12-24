@@ -9,6 +9,11 @@ class DoctorRepository(private val DokterDao: Dokterdao) {
         return DokterDao.getAllDokter()
     }
 
+    // Di dalam DoctorRepository
+    suspend fun update(dokter: Dokter) {
+        DokterDao.updateDokterdao(dokter)
+    }
+
     suspend fun insert(dokter: Dokter) {
         DokterDao.insertDokterdao(dokter)
     }
