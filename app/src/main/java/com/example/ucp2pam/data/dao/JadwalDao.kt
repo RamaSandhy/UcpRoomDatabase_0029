@@ -18,6 +18,15 @@ interface JadwalDao {
     @Delete
     suspend fun deleteJadwal(jadwal: Jadwal)
 
+    @Query("SELECT * FROM Jadwal")
+    suspend fun getAllJadwal(): List<Jadwal>
+
+    @Query("SELECT * FROM Jadwal WHERE id = :id")
+    suspend fun getJadwalById(id: Int): Jadwal?
+
+    @Query("DELETE FROM Jadwal")
+    suspend fun deleteAllJadwal()
+}
 
 
 
